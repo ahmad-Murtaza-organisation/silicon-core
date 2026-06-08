@@ -42,7 +42,9 @@ export function ProductCard({ p }: { p: Product }) {
 
       <div className="flex-1 flex flex-col p-4">
         <div className="text-[11px] font-semibold uppercase tracking-wider text-primary">{p.brand}</div>
-        <h3 className="mt-1 font-semibold text-sm leading-snug line-clamp-2 min-h-[2.5rem]">{p.name}</h3>
+        <Link to="/product/$id" params={{ id: p.id }} className="mt-1 font-semibold text-sm leading-snug line-clamp-2 min-h-[2.5rem] hover:text-primary transition">
+          {p.name}
+        </Link>
 
         <div className="mt-2 flex items-center gap-1.5 text-xs">
           <div className="flex">
