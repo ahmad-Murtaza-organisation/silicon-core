@@ -1,29 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { Hero } from "@/components/site/Hero";
+import { FeaturedCategories } from "@/components/site/FeaturedCategories";
+import { BestSellers, FlashDeals, NewArrivals } from "@/components/site/ProductSections";
+import { Brands } from "@/components/site/Brands";
+import { Reviews } from "@/components/site/Reviews";
+import { Newsletter } from "@/components/site/Newsletter";
+import { SiteFooter } from "@/components/site/SiteFooter";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Silicon-Core — Powering Every Build | Computer Hardware & Electronics" },
+      { name: "description", content: "Shop processors, graphics cards, Arduino, Raspberry Pi, sensors, and electronics. Curated by engineers, shipped same-day. The modern marketplace for builders." },
+      { property: "og:title", content: "Silicon-Core — Powering Every Build" },
+      { property: "og:description", content: "Processors, GPUs, Arduino, Raspberry Pi, and electronics for every build." },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background flex flex-col">
+      <SiteHeader />
+      <main className="flex-1">
+        <Hero />
+        <FeaturedCategories />
+        <BestSellers />
+        <FlashDeals />
+        <NewArrivals />
+        <Brands />
+        <Reviews />
+        <Newsletter />
+      </main>
+      <SiteFooter />
     </div>
   );
 }
