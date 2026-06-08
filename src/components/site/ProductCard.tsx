@@ -12,16 +12,21 @@ export type Product = {
   inStock: boolean;
   sale?: boolean;
   badge?: string;
-  emoji: string;
+  emoji?: string;
   tint: string;
+  image?: string;
 };
 
 export function ProductCard({ p }: { p: Product }) {
   const discount = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
   return (
     <article className="group relative flex flex-col rounded-xl border border-border bg-background overflow-hidden hover:shadow-card-hover hover:border-primary/30 transition">
-      <div className={`relative aspect-square ${p.tint} grid place-items-center overflow-hidden`}>
-        <div className="text-7xl group-hover:scale-110 transition-transform duration-500">{p.emoji}</div>
+      <div className={`relative aspect-square ${p.image ? "bg-white" : p.tint} grid place-items-center overflow-hidden`}>
+        {p.image ? (
+          <img src={p.image} alt={p.name} className="h-full w-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" />
+        ) : (
+          <div className="text-7xl group-hover:scale-110 transition-transform duration-500">{p.emoji}</div>
+        )}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">
           {p.sale && discount > 0 && (
             <span className="px-2 py-0.5 rounded-md bg-destructive text-destructive-foreground text-[11px] font-bold">-{discount}%</span>

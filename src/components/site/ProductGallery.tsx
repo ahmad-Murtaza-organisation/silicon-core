@@ -1,7 +1,12 @@
 import { useState, useRef } from "react";
 import { Expand } from "lucide-react";
 
-export type GalleryImage = { emoji: string; tint: string; label: string };
+export type GalleryImage = {
+  label: string;
+  src?: string;
+  emoji?: string;
+  tint?: string;
+};
 
 export function ProductGallery({ images }: { images: GalleryImage[] }) {
   const [active, setActive] = useState(0);
@@ -25,10 +30,14 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
           <button
             key={i}
             onClick={() => setActive(i)}
-            className={`h-16 w-16 rounded-lg overflow-hidden border-2 grid place-items-center text-2xl ${im.tint} ${i === active ? "border-primary" : "border-border hover:border-primary/40"} transition`}
+            className={`h-16 w-16 rounded-lg overflow-hidden border-2 grid place-items-center text-2xl bg-white ${im.tint ?? ""} ${i === active ? "border-primary" : "border-border hover:border-primary/40"} transition`}
             aria-label={im.label}
           >
-            {im.emoji}
+            {im.src ? (
+              <img src={im.src} alt={im.label} className="h-full w-full object-contain" />
+            ) : (
+              im.emoji
+            )}
           </button>
         ))}
       </div>
@@ -38,17 +47,29 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
           onMouseEnter={() => setZoom(true)}
           onMouseLeave={() => setZoom(false)}
           onMouseMove={onMove}
-          className={`relative aspect-square rounded-2xl overflow-hidden border border-border ${img.tint} grid place-items-center cursor-zoom-in select-none`}
+          className={`relative aspect-square rounded-2xl overflow-hidden border border-border ${img.src ? "bg-white" : img.tint ?? ""} grid place-items-center cursor-zoom-in select-none`}
         >
-          <div
-            className="text-[14rem] transition-transform duration-200 ease-out"
-            style={{
-              transform: zoom ? `scale(2.2) translate(${(50 - pos.x) * 0.3}%, ${(50 - pos.y) * 0.3}%)` : "scale(1)",
-              transformOrigin: `${pos.x}% ${pos.y}%`,
-            }}
-          >
-            {img.emoji}
-          </div>
+          {img.src ? (
+            <img
+              src={img.src}
+              alt={img.label}
+              className="h-full w-full object-contain transition-transform duration-200 ease-out"
+              style={{
+                transform: zoom ? `scale(2.2)` : "scale(1)",
+                transformOrigin: `${pos.x}% ${pos.y}%`,
+              }}
+            />
+          ) : (
+            <div
+              className="text-[14rem] transition-transform duration-200 ease-out"
+              style={{
+                transform: zoom ? `scale(2.2) translate(${(50 - pos.x) * 0.3}%, ${(50 - pos.y) * 0.3}%)` : "scale(1)",
+                transformOrigin: `${pos.x}% ${pos.y}%`,
+              }}
+            >
+              {img.emoji}
+            </div>
+          )}
           <div className="absolute top-3 right-3 h-9 w-9 grid place-items-center rounded-full bg-background/90 border border-border text-foreground/70">
             <Expand className="h-4 w-4" />
           </div>

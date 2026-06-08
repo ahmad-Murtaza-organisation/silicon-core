@@ -8,6 +8,13 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProductGallery } from "@/components/site/ProductGallery";
 import { ProductCard, type Product } from "@/components/site/ProductCard";
+import type { GalleryImage } from "@/components/site/ProductGallery";
+import x870_01 from "@/assets/x870-01.asset.json";
+import x870_03 from "@/assets/x870-03.asset.json";
+import x870_04 from "@/assets/x870-04.asset.json";
+import x870_05 from "@/assets/x870-05.asset.json";
+import x870_07 from "@/assets/x870-07.asset.json";
+import x870_box from "@/assets/x870-box.asset.json";
 
 type Detail = {
   id: string;
@@ -23,7 +30,7 @@ type Detail = {
   inStock: number;
   shortDescription: string;
   highlights: string[];
-  images: { emoji: string; tint: string; label: string }[];
+  images: GalleryImage[];
   specs: Record<string, Record<string, string>>;
   datasheets: { name: string; size: string; type: string }[];
 };
@@ -90,6 +97,76 @@ const CATALOG: Record<string, Detail> = {
       { name: "Raptor Lake Datasheet Vol. 1.pdf", size: "8.4 MB", type: "PDF" },
       { name: "Thermal Design Guide.pdf", size: "2.1 MB", type: "PDF" },
       { name: "Compatibility Matrix.xlsx", size: "320 KB", type: "XLSX" },
+    ],
+  },
+  "asus-x870": {
+    id: "asus-x870",
+    name: "ASUS X870 MAX GAMING WIFI7 AM5 ATX Motherboard",
+    brand: "ASUS",
+    sku: "ASUS-X870-MAX-WIFI7",
+    category: "Motherboards",
+    subcategory: "AMD AM5",
+    price: 329,
+    oldPrice: 379,
+    rating: 4.7,
+    reviews: 148,
+    inStock: 16,
+    shortDescription:
+      "AMD X870 chipset ATX motherboard with 4× DDR5 DIMM slots (up to 256GB), PCIe 5.0 ×16, 3× M.2 slots, Wi-Fi 7 and Bluetooth 5.4. Built for next-gen AM5 Ryzen builds.",
+    highlights: [
+      "AMD AM5 socket — Ryzen 7000 / 8000 / 9000 series ready",
+      "4× DDR5 DIMM, up to 256GB, AEMP / EXPO overclocking",
+      "1× PCIe 5.0 ×16 graphics + 3× M.2 (PCIe 5.0 / 4.0)",
+      "Wi-Fi 7 (BE) + Bluetooth 5.4 onboard",
+      "2.5 Gb Ethernet, USB4 Type-C, HDMI 2.1",
+      "Robust VRM with thermal armor & Q-Antenna included",
+    ],
+    images: [
+      { src: x870_01.url, label: "Full board angle" },
+      { src: x870_05.url, label: "AM5 socket close-up" },
+      { src: x870_07.url, label: "Top-down view" },
+      { src: x870_03.url, label: "Rear I/O panel" },
+      { src: x870_04.url, label: "Side perspective" },
+      { src: x870_box.url, label: "Retail box & contents" },
+    ],
+    specs: {
+      "General": {
+        "Manufacturer": "ASUS",
+        "Model": "X870 MAX GAMING WIFI7",
+        "Form Factor": "ATX (12.0\" × 9.6\")",
+        "Socket": "AMD AM5 (LGA 1718)",
+        "Chipset": "AMD X870",
+      },
+      "Memory": {
+        "Slots": "4× DDR5 DIMM",
+        "Max Capacity": "256 GB",
+        "Speed (OC)": "Up to DDR5-8000+",
+        "Profiles": "AMD EXPO, Intel XMP",
+      },
+      "Expansion & Storage": {
+        "PCIe x16": "1× PCIe 5.0 ×16",
+        "M.2 Slots": "3× M.2 (1× PCIe 5.0, 2× PCIe 4.0)",
+        "SATA": "4× SATA 6Gb/s",
+        "PCIe x1": "2× PCIe 4.0 ×1",
+      },
+      "Connectivity": {
+        "Wireless": "Wi-Fi 7 (BE) — Q-Antenna included",
+        "Bluetooth": "Bluetooth 5.4",
+        "LAN": "2.5 Gb Ethernet",
+        "USB": "USB4 Type-C, USB 3.2 Gen 2×2, USB 3.2 Gen 2",
+        "Display Out": "HDMI 2.1, DisplayPort 1.4",
+      },
+      "Audio & Power": {
+        "Audio": "Realtek 7.1 HD with S/PDIF",
+        "VRM": "Digital, thermal armor heatsink",
+        "Power Connectors": "24-pin ATX + 2× 8-pin EPS",
+      },
+    },
+    datasheets: [
+      { name: "X870 MAX GAMING WIFI7 Quick Start Guide.pdf", size: "2.8 MB", type: "PDF" },
+      { name: "X870 MAX GAMING WIFI7 User Manual.pdf", size: "11.4 MB", type: "PDF" },
+      { name: "AM5 CPU Compatibility List.xlsx", size: "412 KB", type: "XLSX" },
+      { name: "BIOS Release Notes v1402.pdf", size: "640 KB", type: "PDF" },
     ],
   },
 };
