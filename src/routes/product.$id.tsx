@@ -8,6 +8,13 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProductGallery } from "@/components/site/ProductGallery";
 import { ProductCard, type Product } from "@/components/site/ProductCard";
+import type { GalleryImage } from "@/components/site/ProductGallery";
+import x870_01 from "@/assets/x870-01.asset.json";
+import x870_03 from "@/assets/x870-03.asset.json";
+import x870_04 from "@/assets/x870-04.asset.json";
+import x870_05 from "@/assets/x870-05.asset.json";
+import x870_07 from "@/assets/x870-07.asset.json";
+import x870_box from "@/assets/x870-box.asset.json";
 
 type Detail = {
   id: string;
@@ -23,7 +30,7 @@ type Detail = {
   inStock: number;
   shortDescription: string;
   highlights: string[];
-  images: { emoji: string; tint: string; label: string }[];
+  images: GalleryImage[];
   specs: Record<string, Record<string, string>>;
   datasheets: { name: string; size: string; type: string }[];
 };
