@@ -1,4 +1,5 @@
 import { Star, Heart, ShoppingCart, GitCompareArrows } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 export type Product = {
   id: string;
