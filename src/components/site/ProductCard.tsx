@@ -12,8 +12,9 @@ export type Product = {
   inStock: boolean;
   sale?: boolean;
   badge?: string;
-  emoji: string;
+  emoji?: string;
   tint: string;
+  image?: string;
 };
 
 export function ProductCard({ p }: { p: Product }) {
