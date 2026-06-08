@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Silicon-core.hub" },
+      { name: "description", content: "Silicon-Core is a modern e-commerce platform for building and buying computer hardware and electronics." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Silicon-core.hub" },
+      { property: "og:description", content: "Silicon-Core is a modern e-commerce platform for building and buying computer hardware and electronics." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Silicon-core.hub" },
+      { name: "twitter:description", content: "Silicon-Core is a modern e-commerce platform for building and buying computer hardware and electronics." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b3fa6a3a-94f8-4495-9eb6-9b1d23b24be6/id-preview-1f975efb--6753e638-7a1d-412f-859d-a8901820ccc4.lovable.app-1780896087887.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b3fa6a3a-94f8-4495-9eb6-9b1d23b24be6/id-preview-1f975efb--6753e638-7a1d-412f-859d-a8901820ccc4.lovable.app-1780896087887.png" },
     ],
     links: [
       {
