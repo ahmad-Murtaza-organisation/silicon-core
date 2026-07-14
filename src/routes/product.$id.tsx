@@ -15,6 +15,10 @@ import x870_04 from "@/assets/x870-04.asset.json";
 import x870_05 from "@/assets/x870-05.asset.json";
 import x870_07 from "@/assets/x870-07.asset.json";
 import x870_box from "@/assets/x870-box.asset.json";
+import inteli9 from "@/assets/intel-i9-14900k.asset.json";
+import intelTop from "@/assets/intel-cpu-top.asset.json";
+import intelBottom from "@/assets/intel-cpu-bottom.asset.json";
+import intelHero from "@/assets/intel-cpu-hero.asset.json";
 
 type Detail = {
   id: string;
@@ -58,10 +62,10 @@ const CATALOG: Record<string, Detail> = {
       "Integrated Intel UHD Graphics 770",
     ],
     images: [
-      { emoji: "🔵", tint: "bg-gradient-to-br from-blue-50 to-blue-100/40", label: "Front" },
-      { emoji: "⚙️", tint: "bg-gradient-to-br from-slate-50 to-slate-100/40", label: "Pins" },
-      { emoji: "📦", tint: "bg-gradient-to-br from-amber-50 to-amber-100/40", label: "Box" },
-      { emoji: "🧊", tint: "bg-gradient-to-br from-cyan-50 to-cyan-100/40", label: "Heatspreader" },
+      { src: inteli9.url, label: "Retail box front" },
+      { src: intelHero.url, label: "In hand" },
+      { src: intelTop.url, label: "IHS top view" },
+      { src: intelBottom.url, label: "LGA 1700 contacts" },
     ],
     specs: {
       "General": {
