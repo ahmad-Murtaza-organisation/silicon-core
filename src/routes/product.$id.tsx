@@ -194,17 +194,54 @@ const REVIEWS = [
 export const Route = createFileRoute("/product/$id")({
   head: ({ params }) => {
     const p = CATALOG[params.id] ?? CATALOG["1"];
+    const url = `https://silicon-core.lovable.app/product/${params.id}`;
+    const title = p.name.length <= 60 ? p.name : p.name.slice(0, 57).trimEnd() + "…";
+    const desc = p.shortDescription.length <= 160
+      ? p.shortDescription
+      : p.shortDescription.slice(0, 157).trimEnd() + "…";
+    const image = p.images.find((i) => i.src)?.src;
     return {
       meta: [
-        { title: `${p.name} — Silicon-Core` },
-        { name: "description", content: p.shortDescription },
+        { title },
+        { name: "description", content: desc },
         { property: "og:title", content: p.name },
-        { property: "og:description", content: p.shortDescription },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+        ...(image ? [{ property: "og:image", content: image }, { name: "twitter:image", content: image }] : []),
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: p.name,
+            sku: p.sku,
+            description: p.shortDescription,
+            brand: { "@type": "Brand", name: p.brand },
+            ...(image ? { image: [image] } : {}),
+            offers: {
+              "@type": "Offer",
+              price: p.price,
+              priceCurrency: "USD",
+              availability: p.inStock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+              url,
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: p.rating,
+              reviewCount: p.reviews,
+            },
+          }),
+        },
       ],
     };
   },
   component: ProductPage,
 });
+
 
 function ProductPage() {
   const { id } = Route.useParams();

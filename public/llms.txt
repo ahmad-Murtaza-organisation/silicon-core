@@ -1,0 +1,9 @@
+# Silicon-Core
+
+> Modern e-commerce platform for computer hardware, PC components, and electronics — processors, GPUs, motherboards, Arduino, Raspberry Pi, sensors and robotics kits.
+
+## Pages
+
+- [Home](/): Featured hardware, flash deals, new arrivals, and category browsing.
+- [ASUS X870 Motherboard](/product/asus-x870): AMD X870 ATX motherboard with Wi-Fi 7, PCIe 5.0, and DDR5 support.
+- [Intel Core i9-14900K](/product/1): 24-core desktop CPU with 6.0 GHz max turbo for gaming and content creation.
