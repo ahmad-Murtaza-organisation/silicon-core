@@ -2,10 +2,11 @@ import { ProductCard, type Product } from "./ProductCard";
 import { Flame, Sparkles, TrendingUp, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 import x870_01 from "@/assets/x870-01.asset.json";
+import inteli9 from "@/assets/intel-i9-14900k.asset.json";
 
 const BESTSELLERS: Product[] = [
   { id: "asus-x870", name: "ASUS X870 MAX GAMING WIFI7 AM5 Motherboard", brand: "ASUS", price: 329, oldPrice: 379, rating: 5, reviews: 148, inStock: true, sale: true, badge: "New", image: x870_01.url, tint: "bg-white" },
-  { id: "1", name: "Intel Core i9-14900K Desktop Processor", brand: "Intel", price: 589, oldPrice: 689, rating: 5, reviews: 412, inStock: true, sale: true, badge: "Best Seller", emoji: "🔵", tint: "bg-gradient-to-br from-blue-50 to-blue-100/40" },
+  { id: "1", name: "Intel Core i9-14900K Desktop Processor", brand: "Intel", price: 589, oldPrice: 689, rating: 5, reviews: 412, inStock: true, sale: true, badge: "Best Seller", image: inteli9.url, tint: "bg-white" },
   { id: "2", name: "NVIDIA GeForce RTX 4080 Super 16GB", brand: "NVIDIA", price: 1199, rating: 5, reviews: 287, inStock: true, badge: "Hot", emoji: "🟢", tint: "bg-gradient-to-br from-emerald-50 to-emerald-100/40" },
   { id: "3", name: "Corsair Vengeance DDR5 32GB 6000MHz Kit", brand: "Corsair", price: 129, oldPrice: 169, rating: 4, reviews: 1240, inStock: true, sale: true, emoji: "🟡", tint: "bg-gradient-to-br from-amber-50 to-amber-100/40" },
   { id: "4", name: "Samsung 990 Pro 2TB NVMe SSD", brand: "Samsung", price: 189, rating: 5, reviews: 920, inStock: true, emoji: "⚫", tint: "bg-gradient-to-br from-slate-50 to-slate-100/40" },
