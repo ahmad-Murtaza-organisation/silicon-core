@@ -11,19 +11,43 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Silicon-Core — Powering Every Build | Computer Hardware & Electronics" },
-      { name: "description", content: "Shop processors, graphics cards, Arduino, Raspberry Pi, sensors, and electronics. Curated by engineers, shipped same-day. The modern marketplace for builders." },
+      { title: "Silicon-Core — Computer Hardware & Electronics Store" },
+      { name: "description", content: "Shop processors, graphics cards, Arduino, Raspberry Pi, sensors, and electronics. Curated by engineers, shipped same-day." },
       { property: "og:title", content: "Silicon-Core — Powering Every Build" },
       { property: "og:description", content: "Processors, GPUs, Arduino, Raspberry Pi, and electronics for every build." },
+      { property: "og:url", content: "https://silicon-core.lovable.app/" },
     ],
     links: [
+      { rel: "canonical", href: "https://silicon-core.lovable.app/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Store",
+          name: "Silicon-Core",
+          url: "https://silicon-core.lovable.app/",
+          description: "Modern e-commerce platform for computer hardware, PC components, and electronics.",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Silicon-Core",
+          url: "https://silicon-core.lovable.app/",
+        }),
+      },
+    ],
   }),
   component: Index,
 });
+
 
 function Index() {
   return (

@@ -95,17 +95,18 @@ export function SiteHeader() {
             <User className="h-4 w-4" />
             <span className="hidden lg:inline">Sign in</span>
           </button>
-          <button className="hidden sm:grid place-items-center h-10 w-10 rounded-md hover:bg-muted relative">
+          <button aria-label="Wishlist (3 items)" className="hidden sm:grid place-items-center h-10 w-10 rounded-md hover:bg-muted relative">
             <Heart className="h-5 w-5" />
             <span className="absolute -top-0.5 -right-0.5 h-4 min-w-4 px-1 rounded-full bg-accent text-accent-foreground text-[10px] font-semibold grid place-items-center">3</span>
           </button>
-          <button className="flex items-center gap-2 h-10 pl-2 pr-3 rounded-md hover:bg-muted relative">
+          <button aria-label="Shopping cart (2 items, $2,489)" className="flex items-center gap-2 h-10 pl-2 pr-3 rounded-md hover:bg-muted relative">
             <div className="relative">
               <ShoppingCart className="h-5 w-5" />
               <span className="absolute -top-1.5 -right-1.5 h-4 min-w-4 px-1 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold grid place-items-center">2</span>
             </div>
             <span className="hidden lg:inline text-sm font-medium">$2,489</span>
           </button>
+
         </div>
       </div>
 
